@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Convertidor Binario Flotante</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+</head>
+
+<body>
+    <div align="center">
+        <p style="font-size: small;">Pagina web creada por Jesus Antonio Rosario Hernandez</p>
+        <hr>
+        <table>
+            <thead>
+                <tr>
+                    <th colspan="2" style="padding-top: 1em; text-align: center; font-size:x-large;">
+                        Convertidor de decimal flotante a binario
+                    </th>
+                    <th>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td style="padding: 1em 1em 4em 3em;">Ingrese un numero decimal</td>
+                    <td style="padding: 1em 3em 4em 0.5em;">
+                        <form>
+                            <input type="text" id="entrada" oninput="Convertir()">
+                        </form>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div align="center">
+        <table class="table-bordered">
+            <thead style="text-align: center;">
+                <tr>
+                    <th style="padding: 0em 4.5em;"></th>
+                    <th style="padding: 0em 1em;">Signo</th>
+                    <th>Exponente</th>
+                    <th>Mantisa</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Valor</td>
+                    <td style="text-align: center; padding: 0em 1em;">
+                        <span id="signo"></span>
+                    </td>
+                    <td style="text-align: center; padding: 0em 1em;">
+                        2<span id="exponente" style="vertical-align: super; font-size: small;"></span>
+                    </td>
+                    <td style="text-align: center; padding: 0em 1em;">
+                        <span id="fraccion"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Codificado como</td>
+                    <td style="text-align: center; padding: 0em 1em;">
+                        <span id="sig_cod"></span>
+                    </td>
+                    <td style="text-align: center; padding: 0em 1em;">
+                        <span id="exponente_cod"></span>
+                    </td>
+                    <td style="text-align: center; padding: 0em 1em;">
+                        <span id="mantisa_cod"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Binario</td>
+                    <td style="text-align: center; padding: 0em 1em;">
+                        <form>
+                            <input type="checkbox" id="chkbx_signo">
+                        </form>
+                    </td>
+
+                    <td style="text-align: center; padding: 0em 1em;">
+                        <form>
+                            <div style="display: flex; flex-wrap: wrap;">
+                                <div style="display: flex;">
+                                    <input type="checkbox" id="chkbx_exp1" style="margin: 0.1em;">
+                                    <input type="checkbox" id="chkbx_exp2" style="margin: 0.1em;">
+                                    <input type="checkbox" id="chkbx_exp3" style="margin: 0.1em;">
+                                    <input type="checkbox" id="chkbx_exp4" style="margin: 0.1em;">
+                                </div>
+                                <div style="display: flex; margin-left: 0.5em;">
+                                    <input type="checkbox" id="chkbx_exp5" style="margin: 0.1em;">
+                                    <input type="checkbox" id="chkbx_exp6" style="margin: 0.1em;">
+                                    <input type="checkbox" id="chkbx_exp7" style="margin: 0.1em;">
+                                    <input type="checkbox" id="chkbx_exp8" style="margin: 0.1em;">
+                                </div>
+                            </div>
+                        </form>
+                    </td>
+
+                    <td style="text-align: center; padding: 0em 1em;">
+                        <form>
+                            <div style="display: flex; flex-wrap: wrap;">
+                                <div style="display: flex;">
+                                    <input type="checkbox" id="chkbx_mts1" style="margin: 0.1em;">
+                                    <input type="checkbox" id="chkbx_mts2" style="margin: 0.1em;">
+                                    <input type="checkbox" id="chkbx_mts3" style="margin: 0.1em;">
+                                    <input type="checkbox" id="chkbx_mts4" style="margin: 0.1em;">
+                                </div>
+                                <div style="display: flex; margin-left: 0.5em;">
+                                    
+                                    <input type="checkbox" id="chkbx_mts5" style="margin: 0.1em;">
+                                    <input type="checkbox" id="chkbx_mts6" style="margin: 0.1em;">
+                                    <input type="checkbox" id="chkbx_mts7" style="margin: 0.1em;">
+                                    <input type="checkbox" id="chkbx_mts8" style="margin: 0.1em;">
+                                </div>
+                                <div style="display: flex; margin-left: 0.5em;">
+                                    <input type="checkbox" id="chkbx_mts9" style="margin: 0.1em;">
+                                    <input type="checkbox" id="chkbx_mts10" style="margin: 0.1em;">
+                                    <input type="checkbox" id="chkbx_mts11" style="margin: 0.1em;">
+                                    <input type="checkbox" id="chkbx_mts12" style="margin: 0.1em;">
+                                </div>
+                                <div style="display: flex; margin-left: 0.5em;">
+                                    <input type="checkbox" id="chkbx_mts13" style="margin: 0.1em;">
+                                    <input type="checkbox" id="chkbx_mts14" style="margin: 0.1em;">
+                                    <input type="checkbox" id="chkbx_mts15" style="margin: 0.1em;">
+                                    <input type="checkbox" id="chkbx_mts16" style="margin: 0.1em;">
+                                </div>
+                                <div style="display: flex; margin-left: 0.5em;">
+                                    <input type="checkbox" id="chkbx_mts17" style="margin: 0.1em;">
+                                    <input type="checkbox" id="chkbx_mts18" style="margin: 0.1em;">
+                                    <input type="checkbox" id="chkbx_mts19" style="margin: 0.1em;">
+                                    <input type="checkbox" id="chkbx_mts20" style="margin: 0.1em;">
+                                </div>
+                                <div style="display: flex; margin-left: 0.5em;">
+                                    <input type="checkbox" id="chkbx_mts21" style="margin: 0.1em;">
+                                    <input type="checkbox" id="chkbx_mts22" style="margin: 0.1em;">
+                                    <input type="checkbox" id="chkbx_mts23" style="margin: 0.1em;">
+                                </div>
+                            </div>
+                        </form>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div align="center">
+        <table style="margin-top: 2em;">
+            <tbody>
+                <tr>
+                    <td style="padding: 1em 1em 0em 3em;">Representacion binaria:</td>
+                    <td style="padding: 1em 0em 0em 2em;">
+                        <span id="n_b"></span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        function Convertir() {
+            let num = parseFloat(document.getElementById("entrada").value); // Obtenemos el numero ingresado y lo pasamos a flotante
+            //console.log("flotante " + num);
+
+            let signo = num < 0 ? 1 : 0; // obtenemos el signo del numero
+            Signo(signo)
+            //console.log("signo " + signo);
+
+            let p_entera = Math.abs(Math.trunc(num)); // truncamos el numero para obtener la parte entera y le sacamos el valor absoluto
+            //console.log("entero " + p_entera);
+
+            let p_decimal = Math.abs(Math.abs(num) - p_entera); // calculamos la parte decimal
+            //console.log("decimal " + p_decimal);
+
+            let bin_entero = ent_to_bin(p_entera); // pasamos la parte entera a binario
+            let bin_decimal = dec_to_bin(p_decimal); //pasamos la parte decimal a binario
+
+            let num_binario = bin_entero + bin_decimal; // unimos la parte entera binaria y la parte decimal binaria
+            document.getElementById("n_b").innerHTML = num_binario; // actualizamos el html para mostrar el numero binario completo
+            //console.log(num_binario);
+
+            let exp = Exponente(bin_entero); //calculamos el valor del exponente, es decir, el num. de posiciones que se movio el punto decimal
+            document.getElementById("exponente").innerHTML = exp.toString(); // actualizamos el html con el valor del exponente
+
+            let exp_cod = exp + 127; // calculamos el exponente sesgado, para precision simple = 127
+            document.getElementById("exponente_cod").innerHTML = exp_cod.toString(); // actualizamos el html con el valor sesgado del exponente
+
+            let exp_bin = ent_to_bin(exp_cod); // pasamos el exponente sesgado a binario
+            casillas(exp_bin.toString(), "chkbx_exp"); // actualizamos las casillas para que se marquen de acuerdo al binario del exponente sesgado
+
+            let mantisa = Mantisa(bin_entero.toString(), bin_decimal.toString(), exp) // calculamos la mantisa
+            casillas(mantisa, "chkbx_mts") // actualizamos las casillas de la mantisa
+            
+            document.getElementById("mantisa_cod").innerHTML = (parseInt(mantisa, 2)).toString(); //actualizamos el html con el valor de la mantisa pasada a base 10
+            
+            let fracc = man_fraccion(mantisa) // calculamos el valor decimal de la mantisa
+            document.getElementById("fraccion").innerHTML = ("1 + " + fracc.toString()); // actualizamos el html con el valor en fraccion de la mantisa
+        }
+
+        function Signo(signo) {
+            // Funcion que dependiendo del signo del numero flotante, actualiza el html
+            if (signo == 1) { // signo negativo
+                document.getElementById("signo").innerHTML = "-1";
+                document.getElementById("sig_cod").innerHTML = "1";
+                document.getElementById("chkbx_signo").checked = true;
+            } else { //signo positivo
+                document.getElementById("signo").innerHTML = "+1";
+                document.getElementById("sig_cod").innerHTML = "0";
+            }
+        }
+
+        function ent_to_bin(entero) {
+            // Funcion que convierte un numero entero a binario
+            let binario = "";
+            let residuo = 0;
+            while (entero > 0) {
+                residuo = entero % 2;
+                entero = Math.trunc(entero/2);
+                binario = residuo.toString() + binario;
+            }
+            //console.log(respuesta);
+            return binario;
+        }
+
+        function dec_to_bin(decimal) {
+            // Funcion que convierte una parte decimal en binario de 23 bits
+            let binario = "";
+            for (let i = 0; i < 23; i++) {
+                decimal *= 2;
+                let entero = Math.trunc(decimal);
+                binario += entero.toString();
+                decimal -= entero;
+            }
+            //console.log(respuesta);
+            return binario;
+        }
+
+        function Exponente(n_bin) {
+            // Funcion que calcula el exponente, es decir, cuantas posiciones se ha movido el punto decimal
+            // hacia la izquierda hasta encontrar el primer '1'
+            let j = n_bin.length;
+            for (let i = 0; i < j; i++) {
+                if (n_bin[i] == '1') {
+                    return j - i - 1;
+                }
+            }
+            return 0;
+        }
+
+        function casillas(num, tipo) {
+            // Funcion que marca las casillas de un numero binario, dependiendo del tipo 
+            // 'chkbx_exp' <- casillas del exponente
+            // 'chkbx_mts' <- casillas de la mantisa
+            let j = num.length
+            for (let i = 0; i < j; i++) {
+                if (num[i] == "1") {
+                    document.getElementById(`${tipo}${i+1}`).checked = true;
+                }else {
+                    document.getElementById(`${tipo}${i+1}`).checked = false;
+                }
+            }
+        }
+
+        function Mantisa(num_a, num_b, exp) {
+            // Funcion que calcula la mantisa binaria, separando la parte entera binaria en dos
+            // dado el exponente y luego se concatena a la parte decimal binaria en un string de 23 bits
+            let m = num_a.substring(num_a.length - exp)
+            let man = (m + num_b).substring(0, 23);
+            
+            return man;
+        }
+    
+        function man_fraccion(man) {
+            // Funcion que calcula el valor fraccionario de la mantisa, que esta dado por la sumatoria
+            // desde i igual a 1 hasta 23 de cada bit de la mantisa por 2 elevado a i negativo 
+            let j = man.length;
+            let frac = 0;
+            for (let i = 0; i < j; i++) {
+                frac += parseInt(man[i]) * 2 ** -(i + 1);
+            }
+            return frac;
+        }
+
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

@@ -9,14 +9,14 @@
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
 
-<body>
+<body style="background-color: seashell;">
     <div align="center">
-        <p style="font-size: small;">Pagina web creada por Jesus Antonio Rosario Hernandez</p>
+        <p style="font-size: small;"><em>Pagina web creada por Jesus Antonio Rosario Hernandez</em></p>
         <hr>
         <table>
             <thead>
                 <tr>
-                    <th colspan="2" style="padding-top: 1em; text-align: center; font-size:x-large;">
+                    <th colspan="2" class="lead" style="padding-top: 3em; text-align: center; font-size: xx-large;">
                         Convertidor de decimal flotante a binario
                     </th>
                     <th>
@@ -25,10 +25,10 @@
             </thead>
             <tbody>
                 <tr>
-                    <td style="padding: 1em 1em 4em 3em;">Ingrese un numero decimal</td>
-                    <td style="padding: 1em 3em 4em 0.5em;">
+                    <td class="lead" style="padding: 1em 0.7em 4em 3em;">Ingrese un numero decimal:</td>
+                    <td style="padding: 0.3em 3em 4em 0em;">
                         <form>
-                            <input type="text" id="entrada" oninput="Convertir()">
+                            <input type="number" step="any" id="entrada" size="30" placeholder="ejemplo: 18.45" oninput="Convertir()">
                         </form>
                     </td>
                 </tr>
@@ -40,15 +40,15 @@
         <table class="table-bordered">
             <thead style="text-align: center;">
                 <tr>
-                    <th style="padding: 0em 4.5em;"></th>
-                    <th style="padding: 0em 1em;">Signo</th>
+                    <th style="padding: 0em 5.3em;"></th>
+                    <th  style="padding: 0em 1em;">Signo</th>
                     <th>Exponente</th>
                     <th>Mantisa</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                    <td>Valor</td>
+                    <td class="lead">Valor</td>
                     <td style="text-align: center; padding: 0em 1em;">
                         <span id="signo"></span>
                     </td>
@@ -60,7 +60,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td>Codificado como</td>
+                    <td class="lead">Codificado como</td>
                     <td style="text-align: center; padding: 0em 1em;">
                         <span id="sig_cod"></span>
                     </td>
@@ -72,7 +72,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td>Binario</td>
+                    <td class="lead">Binario</td>
                     <td style="text-align: center; padding: 0em 1em;">
                         <form>
                             <input type="checkbox" id="chkbx_signo">
@@ -146,7 +146,7 @@
     </div>
 
     <div align="center">
-        <table style="margin-top: 2em;">
+        <table class="lead" style="margin-top: 2em; margin-left: 11em; display: block;">
             <tbody>
                 <tr>
                     <td style="padding: 1em 1em 0em 3em;">Representacion binaria:</td>
@@ -160,6 +160,10 @@
 
     <script>
         function Convertir() {
+            if (document.getElementById("entrada").value == "") {
+                return;
+            }
+
             let num = parseFloat(document.getElementById("entrada").value); // Obtenemos el numero ingresado y lo pasamos a flotante
             //console.log("flotante " + num);
 
@@ -207,6 +211,7 @@
             } else { //signo positivo
                 document.getElementById("signo").innerHTML = "+1";
                 document.getElementById("sig_cod").innerHTML = "0";
+                document.getElementById("chkbx_signo").checked = false;
             }
         }
 
